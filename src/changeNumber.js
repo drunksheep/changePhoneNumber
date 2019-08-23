@@ -1,13 +1,13 @@
 /**
  * @method changePhoneNumber
- * 
- * @param {string} elsToChange | Seletor para aplicar as mudanças 
+ *
+ * @param {string} elsToChange | Seletor para aplicar as mudanças
  * @param {number} newNumber | novo número de telefone à ser colocado no HREF (só funciona se elsToChange for um <a>)
  * @param {string} numberText | Texto à ser inserido nos nodes selecionados por elsToChange
  * @param {number} timeToChange | Horário para efetuar a mudança
- * 
- * um script simples para trocar valores do número de telefone e href: tel após um certo horário definido. 
- * 
+ *
+ * um script simples para trocar valores do número de telefone e href:tel após um certo horário definido.
+ *
  */
 
 const changePhoneNumber = (elsToChange, newNumber, numberText, timeToChange) => {
@@ -25,7 +25,7 @@ const changePhoneNumber = (elsToChange, newNumber, numberText, timeToChange) => 
         elsToChange = document.querySelectorAll(elsToChange);
     }
 
-    if (timeToChange > hour) {
+    if (timeToChange > hour && day !== 'Domingo' && day !== 'Sábado' && hour > 7) {
         elsToChange.forEach(node => {
             node.innerText = numberText;
 
